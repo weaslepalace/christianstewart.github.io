@@ -18,16 +18,16 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Christian Stewart, Embedded Systems Engineer
+title: Christian Stewart
 email: christianstewart.v1.0@gmail.com
-description: I'm available for work for as either a contractor, or full time employee. I am based near Sacramento, CA, but I'm open to work anywhere in the United States, and European Union.
+description: I'm available for work as either a contractor, or full time employee. I am based near Sacramento, CA, but I'm open to work anywhere in the United States, and European Union.
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "weaslepalace.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  weaslepalace
 linkedin_username: --christianstewart--
 
 # Build settings
-theme: minima
+#theme: jekyll-theme-minimal
 plugins:
   - jekyll-feed
 
