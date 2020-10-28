@@ -20,8 +20,7 @@
 
 title: Christian Stewart, Embedded Systems Engineer
 email: christianstewart.v1.0@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Hi, I'm Christian, and I've been doing embedded systems stuff for a little over 8 years, mostly in renewable energy and energy storage. Welcome to my personal site! Have a look around, but understand that this is a work in progress. I intend to post about some projects I'm working on, as well of some general thoughs on the embedded industry, and ya'know, whatever. If you wish to hire me, I am available for full time employment as well as contract jobs. I am located near Sacramento, CA.
+description: I'm available for work for as either a contractor, or full time employee. I am based near Sacramento, CA, but I'm open to work anywhere in the United States, and European Union.
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "weaslepalace.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  weaslepalace
