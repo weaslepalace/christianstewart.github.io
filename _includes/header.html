@@ -5,8 +5,7 @@
     {%- assign page_paths = site.header_pages | default: default_paths -%}
 	<div class="site-title">
 	    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
-		<p>
-		<span class="site-tag">{{ site.tagline | escape }}</span>
+		<p><h2 class="site-tag">{{ site.tagline | escape }}</h2></p>
 	</div>
     {%- if page_paths -%}
       <nav class="site-nav">
