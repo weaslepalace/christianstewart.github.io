@@ -122,7 +122,12 @@
 
 .footer-heading {
   @include relative-font-size(1.125);
-  margin-bottom: $spacing-unit / 2;
+  margin-bottom: $spacing-unit / 8;
+}
+
+.footer-heading-tagline {
+  @include relative-font-size(1);
+  margin-bottom: $spacing-unit / 2;	
 }
 
 .contact-list,
