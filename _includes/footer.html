@@ -21,6 +21,14 @@
       <div class="footer-col footer-col-3">
         <p>{{- site.description | escape -}}</p>
       </div>
+     {%- if site.copyyear and site.copyholder and site.copylicense and site.copylicenselink -%}
+      <p>
+		<span class="footer-col">
+			&copy; {{ site.copyyear }} {{ site.copyholder }} -- 
+			Licensed under <a href="{{ site.copylicenselink }}">{{ site.copylicense }}</a>
+		</span>
+      {%- endif -%}
+	</p>
     </div>
 
   </div>
