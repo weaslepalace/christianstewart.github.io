@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Portfolio is Live!"
 date: 2020-10-27 23:06 -0700
 categories: portfolio career
