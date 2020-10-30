@@ -11,9 +11,24 @@ I worked at JLM from August 2012 through June 2018. This was my first job as an 
 
 ### Zefr
 #### Arrayed micro wind turbine
-These were small roof mounted wind turbines capable of generating up to 300W in the right conditions. They intended to be installed in an array, similar to solar panels, and even used microinverted originally designed for solar applications. The electronics included a rectifier, DC-DC converter, rheostatic breaking, and telemetry. The electronics were originally packed into the nacelle, but were moved to an external module due to thermal runaway issues. An energy meter called the Smart Gear Box (SGB) measured to total output of the array, and collected telemetry data from each turbine via a ISM band radio. 
+
+<figure>
+	<img src="images/zefr_vallejo.jpg">
+	<figcaption>Zefr installed on the roof of a utility building at California State University Maritime Acedemy</figcaption>
+</figure>
+
+These were small roof mounted wind turbines each capable of generating up to 300W in the right conditions. They intended to be installed in an array, similar to solar panels, and even used microinverted originally designed for solar applications. The electronics included a rectifier, DC-DC converter, rheostatic breaking, and telemetry. The electronics were originally packed into the nacelle, but were moved to an external module due to thermal runaway issues. An energy meter called the Smart Gear Box (SGB) measured to total output of the array, and collected telemetry data from each turbine via a ISM band radio. 
 
 Due to it's high cost, and some unresolved mechanical issues (where the hub would disintigrate at high angular velocity, sending turbine blades flying in all directions) Zefr was never a market success, and the project was eventually canceled.
+
+<figure>
+<video width="640" height="480" controls><source src="images/zefr_stress_test.mp4" type="video/mp4"> </video>
+<figcaption>
+This video depicts a turbine undergoing a worst-case stress test. It was mounted to the top of an SUV driven at a high speed simulate strong wind. The cage was installed to prevent debris from flying all over the highway, but a blade was still able to slice through out into the passing field.
+</figcaption>
+</figure>
+
+
 
 I came into the project not long before the first articles shipped. My first task was to develop drivers, and communication protocol for the ISM band radio. Development was done on a Silicon Labs 8051 microcontroller using the Keil C51 compiler. 
 
@@ -35,7 +50,7 @@ This is probably one of the weirdest and most interesting problems I've faced, b
 I redesigned the board, taking a little more care this time, and the problem was solved. This bug left me traumatized, and to this day I'm still a little nervous when it comes to driving relays off a shift register. We installed our first and only system at a swimming pool on a military base, and after a few months we received complaints that the pool was too hot! The original requirements model specified a maximum temperature, which I hard-coded into the controller. I had to go back and implement some configuration parameters that the customer could use to set the maximum temperature via a USB dongle that communicated over the ISM radio. I designed, tested, and shipped the dongle, but the entire project what put to a halt by bureaucratic shenanigans as the Army officials would not allow the use of the ISM band radio on the base.
 
 ### LiFePO<sub>4</sub> Battery Management System (BMS)
-#### Because lithium batteries misbehave sometimes
+#### Because **B**atteries **M**isbehave **S**ometimes
 During 2013, JLM Energy pivoted away from energy generation, and toward energy storage. We launched a residential energy storage unit called Energizr a year ahead of Tesla's Powerwall, and began planning a commercial shipping container base solution called Gridz. Both of these products were based on LiFePO<sub>4</sub> battery technology, which needed a BMS to monitor and balance the individual cells. Most off-the-shelf BMS's are either expensive, or didn't scale well to meet our needs, so we designed our own to use in-house with both our commercial and residential products. Each BMS board could monitor and balance up to 24 cells. Our residential product had 15 cells, so it only needed one board. Our commercial product supported over 300 cells, so multiple boards needed to be stacked in a daisy-chain. The boards measured individual cell voltages and temperatures, and clocked the data back to a single controller over an isolated serial connection. This was our first product where the processing was done on an embedded Arm device with ethernet running linux(Beaglebone), instead of the 8051 / ISM radio combination.
  
 For this project I was again the sole designer. The CEO handed me a block diagram scribbled on a piece of paper, and asked me to build it into a product. This project represents a shift in how I approached software design. At this stage in my career, I was becoming confident in the C language, and well, confidence can quickly become over confidence. Before, when I was working in the highly constrained 8051 environment, I took an extremely cautious design-forward approach to everything I did. But with linux, and dynamic memory allocation at my fingertips, I was more that happy to abuse the fragile constructs that the C language has to offer. Code written during this stage in my career was carelessly peppered with mallocs and reallocs, and also (and as a result) memory leaks, dangling pointers, and buffer overruns. All this because something in my head told me that this code would be 'faster' and 'more efficient'. All this micro-optimization lead to some truly regrettable code, and this is were I learned a valuable lesson about heap corruption.
