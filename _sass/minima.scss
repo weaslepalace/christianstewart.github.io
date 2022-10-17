@@ -10,14 +10,19 @@ $base-line-height: 1.5 !default;
 
 $spacing-unit:     30px !default;
 
-$text-color:       #f0e7d5 !default;
-$background-color: #252525 !default;
-$brand-color:      #ffcc00 !default;
+$dark-gray:   #585858;
+$light-beige: #EEEEEE;
+$magenta:     #AF005F;
+$green:       #5F8700;
+$blue:        #005F87;
 
+$text-color:       $dark-gray !default;
+$background-color: $light-beige !default;
+$brand-color:      $green !default;
 
-$accent-color:       #ffcc00 !default;
-$accent-color-light: lighten($accent-color, 0%) !default;
-$accent-color-dark:  darken($accent-color, 15%) !default;
+$accent-color:       $brand-color !default;
+$accent-color-light: $magenta !default;
+$accent-color-dark:  $blue !default;
 
 $table-text-align: left !default;
 
